@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from 'typeorm';
 
-@Entity()
+@Entity('admin')
 export class AdminUser extends BaseEntity{
   @PrimaryGeneratedColumn()
   id: string;

@@ -4,7 +4,7 @@ import { JobProfile } from './job-profile.entity';
 import { Interviewer } from './interviewer.entity';
 
 
-@Entity('CandidateJobProfileInterviewer')
+@Entity('candidate_jobprofile_interviewer')
 export class CandidateJobProfileInterviewer extends BaseEntity{
     @PrimaryGeneratedColumn()
     id: number;
