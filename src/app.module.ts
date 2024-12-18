@@ -1,25 +1,26 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+
+import { AdminUser } from './modules/entities/admin-user.entity';
+import { JobProfile } from './modules/entities/job-profile.entity';
+
 @Module({
   imports: [
-    // Load environment variables
     ConfigModule.forRoot({
-      isGlobal: true, // Makes the environment variables accessible globally
+      isGlobal: true, // Makes environment variables available globally
     }),
-    // Configure TypeORM for MariaDB connection
     TypeOrmModule.forRoot({
-      type: 'mariadb', // Database type
-      host: process.env.DB_HOST, // Host from .env
-      port: parseInt(process.env.DB_PORT, 10), // Port from .env
-      username: process.env.DB_USERNAME, // Username from .env
-      password: process.env.DB_PASSWORD, // Password from .env
-      database: process.env.DB_NAME, // Database name from .env
-      autoLoadEntities: true, // Automatically load entities
-      synchronize: true, // Automatically sync database schema (disable in production)
+      type: 'mariadb',
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT, 10),
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
+      entities: [AdminUser, JobProfile], // Add all entities here
+      synchronize: true, // Ensures tables are created automatically (development only)
+      logging: true, // Logs SQL queries for debugging
     }),
   ],
-  controllers: [], // Add controllers here
-  providers: [],   // Add services/providers here
 })
 export class AppModule {}

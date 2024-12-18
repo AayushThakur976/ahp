@@ -5,7 +5,6 @@ export const PERFORMANCE_LEVELS = {
   };
 
   // ... other constants ...
-
 export const RCI_INDEX = {
     3: 0.58,
     4: 0.9,

@@ -12,7 +12,7 @@ export class CriteriasJobProfile extends BaseEntity{
   criteria_id: Criteria;
 
   @ManyToOne(() => JobProfile, (jobProfile) => jobProfile.id)
-  job_profile_id:JobProfile;
+  job_profile_id: string; 
   
 
   
