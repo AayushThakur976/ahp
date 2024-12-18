@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column ,ManyToOne, BaseEntity} from 'typeorm';
-import { Criteria } from '../criterias/criterias.entity';
-import { JobProfile } from '../job-profile/job-profile.entity';
+import { Criteria } from './criterias.entity';
+import { JobProfile } from './job-profile.entity';
 
 
 @Entity('criterias_job_profile')

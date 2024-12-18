@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, BaseEntity } from 'typeorm';
-import { Candidate } from '../candidate/candidate.entity';
-import { JobProfile } from '../job-profile/job-profile.entity';
-import { Interviewer } from '../interviewer/interviewer.entity';
+import { Candidate } from './candidate.entity';
+import { JobProfile } from './job-profile.entity';
+import { Interviewer } from './interviewer.entity';
 
 
 @Entity('CandidateJobProfileInterviewer')

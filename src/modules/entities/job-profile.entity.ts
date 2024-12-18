@@ -10,8 +10,4 @@ export class JobProfile extends BaseEntity{
 
   @Column()
   department: string;
-
-  
-
-  
 }

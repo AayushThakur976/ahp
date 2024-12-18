@@ -1,9 +1,9 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, BaseEntity, OneToOne } from 'typeorm';
-import { Candidate } from '../candidate/candidate.entity';
-import { Interviewer } from '../interviewer/interviewer.entity';
-import { Criteria } from '../criterias/criterias.entity';
-import { CriteriasJobProfile } from '../job-criteria-map/job-criteria-map.entity';
-import { CandidateJobProfileInterviewer } from '../candidate_jobProfile_interviewer/candidate_jobprofile_interviewer.entity';
+import { Candidate } from './candidate.entity';
+import { Interviewer } from './interviewer.entity';
+import { Criteria } from './criterias.entity';
+import { CriteriasJobProfile } from './job-criteria-map.entity';
+import { CandidateJobProfileInterviewer } from './candidate_jobprofile_interviewer.entity';
 
 
 @Entity('criteria_interviewer_result')

@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CriteriaInterviewerResult } from 'src/modules/criteria_interviewResult_map/criteria_interviewResult_map';
-import { Candidate } from 'src/modules/candidate/candidate.entity';
-import { Criteria } from 'src/modules/criterias/criterias.entity';
+import { CriteriaInterviewerResult } from 'src/modules/entities/criteria_interviewResult_map';
+import { Candidate } from 'src/modules/entities/candidate.entity';
+import { Criteria } from 'src/modules/entities/criterias.entity';
 
 @Injectable()
 export class CriteriaCandidateScoreService {
