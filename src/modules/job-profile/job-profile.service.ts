@@ -12,8 +12,6 @@ export class CriteriaService {
     private readonly criteriasJobProfileRepository: Repository<CriteriasJobProfile>,
     @InjectRepository(JobProfile)
     private readonly jobProfileRepository: Repository<JobProfile>,
-    @InjectRepository(Criteria)
-    private readonly criteriaRepository: Repository<Criteria>,
   ) {}
 
   // Fetch criteria associated with a given job profile ID

@@ -9,6 +9,7 @@ import { Interviewer } from './modules/entities/interviewer.entity';
 import { CriteriaInterviewerResult } from './modules/entities/criteria_interviewResult_map';
 import { CriteriasJobProfile } from './modules/entities/job-criteria-map.entity';
 import { JobProfileModule } from './modules/job-profile/job-profile.module';
+import { CriteriaModule } from './modules/criteria_score/criteria.module';
 
 @Module({
   imports: [
@@ -33,7 +34,9 @@ import { JobProfileModule } from './modules/job-profile/job-profile.module';
       ],
       synchronize: true,  // Be cautious with this in production (it automatically syncs the schema with the database)
     }),
-    JobProfileModule,  // Import the JobModule here
+    JobProfileModule,  // Import the JobModule 
+    CriteriaModule,
+
   ],
 })
 export class AppModule {}

@@ -1,10 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from 'typeorm';
-import { CriteriasJobProfile } from './job-criteria-map.entity';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Candidate } from './candidate.entity';
+import { Criteria } from './criterias.entity';
 
 @Entity('job_profile')
-export class JobProfile extends BaseEntity {
+export class JobProfile {
   @PrimaryGeneratedColumn()
-  id: string;  // This will be a string ID as per your original definition
+  id: string;
 
   @Column()
   name: string;
@@ -12,5 +13,9 @@ export class JobProfile extends BaseEntity {
   @Column()
   department: string;
 
-  // Add any other relations if necessary
+  @OneToMany(() => Candidate, (candidate) => candidate.jobProfile)
+  candidates: Candidate[];
+
+  @OneToMany(() => Criteria, (criteria) => criteria.jobProfile)
+  criteria: Criteria[]; // Reverse relationship for the ManyToOne in Criteria
 }

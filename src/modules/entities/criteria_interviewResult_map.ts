@@ -1,23 +1,27 @@
-// criteria_interviewer_result.entity.ts
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, BaseEntity } from 'typeorm';
-import { Candidate } from './candidate.entity';
-import { Interviewer } from './interviewer.entity';
+import { Entity, PrimaryGeneratedColumn, ManyToOne, Column } from 'typeorm';
 import { Criteria } from './criterias.entity';
+import { Candidate } from './candidate.entity';
 
-@Entity('criteria_interviewer_result')
-export class CriteriaInterviewerResult extends BaseEntity {
+@Entity('criteria_interview_result_map')
+export class CriteriaInterviewerResult {
   @PrimaryGeneratedColumn()
-  id: string;
+  id: number;
 
-  @ManyToOne(() => Criteria, (criteria) => criteria.id)
-  criteria_id: Criteria; 
+  @ManyToOne(() => Criteria, (criteria) => criteria.criteriaResults, {
+    onDelete: 'CASCADE', // Deletes this entry when the related Criteria is deleted
+    onUpdate: 'CASCADE',
+  })
+  criteria: Criteria;
 
-  @ManyToOne(() => Candidate, (candidate) => candidate.id) 
-  candidate_id: Candidate; // This line is correct
-
-  @ManyToOne(() => Interviewer, (interviewer) => interviewer.id)
-  interviewer_id: Interviewer;
+  @ManyToOne(() => Candidate, (candidate) => candidate.criteriaResults, {
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
+  candidate: Candidate;
 
   @Column()
+  interviewerId: number;
+
+  @Column({nullable:false})
   score: number;
 }
