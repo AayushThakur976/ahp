@@ -10,6 +10,4 @@ export class Candidate {
 
   @Column()
   email: string;
-
-
 }

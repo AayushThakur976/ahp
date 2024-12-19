@@ -1,10 +1,15 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { CriteriasJobProfile } from './job-criteria-map.entity';
 
-@Entity('criteria')
-export class Criteria extends BaseEntity{
+@Entity('criterias')
+export class Criteria {
   @PrimaryGeneratedColumn()
-  id: string;
+  id: number;
 
   @Column()
-   name:string;
+  name: string;
+
+  // Relation to CriteriasJobProfile (mapping table)
+  @OneToMany(() => CriteriasJobProfile, (criteriaJobProfile) => criteriaJobProfile.criteria)
+  criteriasJobProfiles: CriteriasJobProfile[];
 }

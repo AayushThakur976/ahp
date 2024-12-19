@@ -1,19 +1,17 @@
-import { Entity, PrimaryGeneratedColumn, Column ,ManyToOne, BaseEntity} from 'typeorm';
-import { Criteria } from './criterias.entity';
+import { Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { JobProfile } from './job-profile.entity';
+import { Criteria } from './criterias.entity';
 
-
-@Entity('criterias_job_profile')
-export class CriteriasJobProfile extends BaseEntity{
+@Entity('job_criteria')
+export class CriteriasJobProfile {
   @PrimaryGeneratedColumn()
-  id: string;
-   
-  @ManyToOne(() => Criteria, (criteria) => criteria.id)
-  criteria_id: Criteria;
+  id: number;
 
   @ManyToOne(() => JobProfile, (jobProfile) => jobProfile.id)
-  job_profile_id: string; 
-  
+  @JoinColumn({ name: 'jobProfileId' })
+  jobProfile: JobProfile;
 
-  
+  @ManyToOne(() => Criteria, (criteria) => criteria.id)
+  @JoinColumn({ name: 'criteriaId' })
+  criteria: Criteria;
 }
