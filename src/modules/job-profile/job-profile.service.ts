@@ -16,7 +16,6 @@ export class CriteriaService {
 
   // Fetch criteria associated with a given job profile ID
   async getCriteriaForJobProfile(jobProfileId: string): Promise<Criteria[]> {
-    // First, fetch the job profile to ensure it exists
     const jobProfile = await this.jobProfileRepository.findOne({
       where: { id: jobProfileId },
     });
@@ -25,13 +24,12 @@ export class CriteriaService {
       throw new Error(`Job Profile with ID ${jobProfileId} not found`);
     }
 
-    // Fetch the job profile-criteria mapping
+    // Ensure the join is made properly with the criteria
     const criteriasJobProfiles = await this.criteriasJobProfileRepository.find({
       where: { jobProfile: { id: jobProfileId } },
-      relations: ['criteria'],  // Make sure to load the criteria entity as well
+      relations: ['criteria'],  // Ensures that the related 'criteria' are loaded
     });
 
-    // Return the criteria array
     return criteriasJobProfiles.map((item) => item.criteria);
   }
 }

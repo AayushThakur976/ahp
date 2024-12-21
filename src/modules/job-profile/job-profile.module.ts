@@ -8,9 +8,9 @@ import { Criteria } from '../entities/criterias.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([CriteriasJobProfile, JobProfile, Criteria]),  // Register the entities
+    TypeOrmModule.forFeature([CriteriasJobProfile, JobProfile, Criteria]), // Ensure correct feature imports
   ],
-  controllers: [JobProfileController],  // Add the controller
-  providers: [CriteriaService],  // Add the service
+  controllers: [JobProfileController],
+  providers: [CriteriaService],
 })
 export class JobProfileModule {}
